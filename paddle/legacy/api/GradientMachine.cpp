@@ -133,7 +133,7 @@ size_t GradientMachine::getParameterSize() const {
   return m->machine->getParameters().size();
 }
 
-Parameter* GradientMachine::getParameter(size_t i) throw(RangeError) {
+Parameter* GradientMachine::getParameter(size_t i) {
   auto params = m->machine->getParameters();
   if (i < params.size()) {
     return Parameter::createFromSharedPtr(&m->machine->getParameters()[i]);
@@ -146,7 +146,7 @@ size_t GradientMachine::getNonStaticParameterSize() const {
   return m->machine->getNonStaticParameters().size();
 }
 
-Parameter* GradientMachine::getNonStaticParameter(size_t i) throw(RangeError) {
+Parameter* GradientMachine::getNonStaticParameter(size_t i) {
   auto params = m->machine->getNonStaticParameters();
   if (i < params.size()) {
     return Parameter::createFromSharedPtr(
@@ -158,8 +158,7 @@ Parameter* GradientMachine::getNonStaticParameter(size_t i) throw(RangeError) {
 
 void GradientMachine::randParameters() { m->machine->randParameters(); }
 
-Arguments* GradientMachine::getLayerOutput(const std::string& layerName) const
-    throw(UnsupportError) {
+Arguments* GradientMachine::getLayerOutput(const std::string& layerName) const {
   auto nn = m->machine;
   if (nn) {
     auto arg = nn->getLayerOutput(layerName);
