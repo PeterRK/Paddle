@@ -8,8 +8,9 @@ include_directories(${DLPACK_INCLUDE_DIR})
 ExternalProject_Add(
   extern_dlpack
   ${EXTERNAL_PROJECT_LOG_ARGS}
-  GIT_REPOSITORY "https://github.com/dmlc/dlpack.git"
-  GIT_TAG        "v0.2"
+#  GIT_REPOSITORY "https://github.com/dmlc/dlpack.git"
+#  GIT_TAG        "v0.2"
+  URL            "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/dlpack"
   PREFIX         ${DLPACK_SOURCE_DIR}
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND ""

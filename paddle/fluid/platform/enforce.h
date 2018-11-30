@@ -251,6 +251,14 @@ inline void throw_on_error(ncclResult_t stat, const std::string& msg) {
     }                                                                     \
   } while (0)
 
+#define PADDLE_ENFORCE_NOEXCEPT(COND, ...)                  \
+  do {                                                      \
+    auto __cond__ = (COND);                                 \
+    if (UNLIKELY(::paddle::platform::is_error(__cond__))) { \
+      std::abort();                                         \
+    }                                                       \
+  } while (false)
+
 #define PADDLE_THROW_EOF()                                                     \
   do {                                                                         \
     throw ::paddle::platform::EOFException("There is no next data.", __FILE__, \

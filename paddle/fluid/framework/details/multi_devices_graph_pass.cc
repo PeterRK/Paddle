@@ -208,7 +208,7 @@ std::unique_ptr<ir::Graph> MultiDevSSAGraphBuilderBase::ApplyImpl(
 
             InsertCollectiveOp(&result, p_name, g_name);
           }
-        } catch (boost::bad_get e) {
+        } catch (const boost::bad_get& e) {
         }
       }
     }
@@ -683,7 +683,7 @@ std::vector<ir::Node *> ReduceSSAGraphBuilder::SortForReduceMode(
         backward_vars =
             boost::get<std::vector<std::string>>(node->Op()->GetNullableAttr(
                 OpProtoAndCheckerMaker::OpRoleVarAttrName()));
-      } catch (boost::bad_get e) {
+      } catch (const boost::bad_get& e) {
       }
       PADDLE_ENFORCE_EQ(backward_vars.size() % 2, 0);
 

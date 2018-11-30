@@ -73,7 +73,7 @@ void LoadPersistables(framework::Executor* executor, framework::Scope* scope,
                       bool model_from_memory = false) {
   const framework::BlockDesc& global_block = main_program.Block(0);
 
-  framework::ProgramDesc* load_program = new framework::ProgramDesc();
+  std::unique_ptr<framework::ProgramDesc> load_program(new framework::ProgramDesc());
   framework::BlockDesc* load_block = load_program->MutableBlock(0);
   std::vector<std::string> paramlist;
 
@@ -113,9 +113,7 @@ void LoadPersistables(framework::Executor* executor, framework::Scope* scope,
     op->CheckAttrs();
   }
 
-  executor->Run(*load_program, scope, 0, true, true);
-
-  delete load_program;
+  executor->Run(*load_program.get(), scope, 0, true, true);
 }
 
 std::unique_ptr<framework::ProgramDesc> Load(framework::Executor* executor,

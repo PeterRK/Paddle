@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+FIND_PACKAGE(Snappy REQUIRED)
+add_library(snappy INTERFACE)
+return() #just use public lib
+
+if(MOBILE_INFERENCE OR RPI)
+    return()
+endif()
+
 include (ExternalProject)
 
 # NOTE: snappy is needed when linking with recordio

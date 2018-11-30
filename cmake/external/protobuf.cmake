@@ -12,24 +12,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-INCLUDE(ExternalProject)
+
+#INCLUDE(ExternalProject)
 # Always invoke `FIND_PACKAGE(Protobuf)` for importing function protobuf_generate_cpp
 IF(NOT WIN32)
-FIND_PACKAGE(Protobuf QUIET)
+FIND_PACKAGE(Protobuf REQUIRED)
 ENDIF(NOT WIN32)
 macro(UNSET_VAR VAR_NAME)
     UNSET(${VAR_NAME} CACHE)
     UNSET(${VAR_NAME})
 endmacro()
 
-UNSET_VAR(PROTOBUF_INCLUDE_DIR)
-UNSET_VAR(PROTOBUF_FOUND)
-UNSET_VAR(PROTOBUF_PROTOC_EXECUTABLE)
-UNSET_VAR(PROTOBUF_PROTOC_LIBRARY)
-UNSET_VAR(PROTOBUF_LITE_LIBRARY)
-UNSET_VAR(PROTOBUF_LIBRARY)
-UNSET_VAR(PROTOBUF_INCLUDE_DIR)
-UNSET_VAR(Protobuf_PROTOC_EXECUTABLE)
+#UNSET_VAR(PROTOBUF_INCLUDE_DIR)
+#UNSET_VAR(PROTOBUF_FOUND)
+#UNSET_VAR(PROTOBUF_PROTOC_EXECUTABLE)
+#UNSET_VAR(PROTOBUF_PROTOC_LIBRARY)
+#UNSET_VAR(PROTOBUF_LITE_LIBRARY)
+#UNSET_VAR(PROTOBUF_LIBRARY)
+#UNSET_VAR(PROTOBUF_INCLUDE_DIR)
+#UNSET_VAR(Protobuf_PROTOC_EXECUTABLE)
 function(protobuf_generate_python SRCS)
     # shameless copy from https://github.com/Kitware/CMake/blob/master/Modules/FindProtobuf.cmake
     if(NOT ARGN)
@@ -85,6 +86,10 @@ function(protobuf_generate_python SRCS)
 
     set(${SRCS} ${${SRCS}} PARENT_SCOPE)
 endfunction()
+
+add_library(protoc INTERFACE)
+add_library(protobuf INTERFACE)
+return() #just use public lib
 
 # Print and set the protobuf library information,
 # finish this cmake process and exit from this file.

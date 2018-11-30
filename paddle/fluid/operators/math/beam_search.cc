@@ -38,7 +38,7 @@ class BeamSearchFunctor<platform::CPUDeviceContext, T> {
     auto items = SelectTopBeamSizeItems(pre_ids, pre_scores, ids, scores, level,
                                         beam_size, end_id, is_accumulated);
     auto selected_items = ToMap(items, high_level.back());
-    if (FLAGS_v == 3) {
+    if (VLOG_IS_ON(3)) {
       VLOG(3) << "selected_items:";
       for (size_t i = 0; i < selected_items.size(); ++i) {
         VLOG(3) << "offset: " << i;
@@ -263,7 +263,7 @@ class BeamSearchFunctor<platform::CPUDeviceContext, T> {
       result.emplace_back(top_beam);
     }
 
-    if (FLAGS_v == 3) {
+    if (VLOG_IS_ON(3)) {
       VLOG(3) << "SelectTopBeamSizeItems result size " << result.size();
       for (auto &items : result) {
         VLOG(3) << "item set:";

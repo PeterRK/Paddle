@@ -91,9 +91,12 @@
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 if(NOT APPLE)
-  find_package(Threads REQUIRED)
-  link_libraries(${CMAKE_THREAD_LIBS_INIT})
-  set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -pthread -ldl -lrt")
+    find_package(Threads REQUIRED)
+    link_libraries(${CMAKE_THREAD_LIBS_INIT})
+    set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -pthread -ldl -lrt -lz -lsnappy -lgflags -lprotobuf")
+if (WITH_GLOG)
+    set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -lglog")
+endif()
 endif(NOT APPLE)
 
 set_property(GLOBAL PROPERTY FLUID_MODULES "")

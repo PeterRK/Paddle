@@ -12,6 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+find_package(Gflags REQUIRED)
+#add_library(gflags INTERFACE)
+return() #just use public lib
+
 INCLUDE(ExternalProject)
 
 SET(GFLAGS_SOURCES_DIR ${THIRD_PARTY_PATH}/gflags)
