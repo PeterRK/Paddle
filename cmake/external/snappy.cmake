@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+add_library(snappy INTERFACE)
+return() #just use public lib
+
 if(MOBILE_INFERENCE OR RPI)
     return()
 endif()

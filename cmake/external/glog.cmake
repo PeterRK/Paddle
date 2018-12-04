@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+add_library(glog INTERFACE)
+return() #just use public lib
+
 INCLUDE(ExternalProject)
 
 SET(GLOG_SOURCES_DIR ${THIRD_PARTY_PATH}/glog)

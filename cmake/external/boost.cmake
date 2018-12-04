@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+add_library(boost INTERFACE)
+return() #just use public lib
+
 include(ExternalProject)
 
 set(BOOST_PROJECT       "extern_boost")

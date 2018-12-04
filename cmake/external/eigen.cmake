@@ -1,5 +1,10 @@
 INCLUDE(ExternalProject)
 
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIR})
+add_library(eigen3 INTERFACE)
+return() #just use public lib
+
 SET(EIGEN_SOURCE_DIR ${THIRD_PARTY_PATH}/eigen3)
 SET(EIGEN_INCLUDE_DIR ${EIGEN_SOURCE_DIR}/src/extern_eigen3)
 INCLUDE_DIRECTORIES(${EIGEN_INCLUDE_DIR})
