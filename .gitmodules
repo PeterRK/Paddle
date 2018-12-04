@@ -1,0 +1,36 @@
+[submodule "thirdparty/xxHash"]
+	path = thirdparty/xxHash
+	url = https://github.com/Cyan4973/xxHash.git
+	branch = master
+[submodule "thirdparty/xbyak"]
+	path = thirdparty/xbyak
+	url = https://github.com/herumi/xbyak.git
+	branch = master
+[submodule "thirdparty/warp-ctc"]
+	path = thirdparty/warp-ctc
+	url = https://github.com/baidu-research/warp-ctc.git
+	branch = master
+[submodule "thirdparty/ThreadPool"]
+	path = thirdparty/ThreadPool
+	url = https://github.com/progschj/ThreadPool.git
+	branch = master
+[submodule "thirdparty/snappystream"]
+	path = thirdparty/snappystream
+	url = https://github.com/hoxnox/snappystream.git
+	branch = master
+[submodule "thirdparty/mkl-dnn"]
+	path = thirdparty/mkl-dnn
+	url = https://github.com/intel/mkl-dnn.git
+	branch = master
+[submodule "thirdparty/gzstream"]
+	path = thirdparty/gzstream
+	url = https://github.com/jacquesqiao/gzstream.git
+	branch = master
+[submodule "thirdparty/dlpack"]
+	path = thirdparty/dlpack
+	url = https://github.com/dmlc/dlpack.git
+	branch = master
+[submodule "thirdparty/any"]
+	path = thirdparty/any
+	url = https://github.com/PaddlePaddle/any.git
+	branch = master
