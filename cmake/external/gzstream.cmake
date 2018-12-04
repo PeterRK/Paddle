@@ -28,8 +28,9 @@ SET(GZSTREAM_INCLUDE_DIR "${GZSTREAM_INSTALL_DIR}/include/" CACHE PATH "gzstream
 ExternalProject_Add(
         extern_gzstream
         DEPENDS zlib
-        GIT_REPOSITORY "https://github.com/jacquesqiao/gzstream.git"
-        GIT_TAG ""
+#        GIT_REPOSITORY "https://github.com/jacquesqiao/gzstream.git"
+#        GIT_TAG ""
+        URL             "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/gzstream"
         PREFIX          ${GZSTREAM_SOURCES_DIR}
         UPDATE_COMMAND  ""
         CONFIGURE_COMMAND ""

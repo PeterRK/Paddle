@@ -38,8 +38,9 @@ ExternalProject_Add(
     ${XBYAK_PROJECT}
     ${EXTERNAL_PROJECT_LOG_ARGS}
     DEPENDS             ""
-    GIT_REPOSITORY      "https://github.com/herumi/xbyak.git"
-    GIT_TAG             "v5.661"  # Jul 26th
+#    GIT_REPOSITORY      "https://github.com/herumi/xbyak.git"
+#    GIT_TAG             "v5.661"  # Jul 26th
+    URL                 "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/xbyak"
     PREFIX              ${XBYAK_PREFIX_DIR}
     UPDATE_COMMAND      ""
     CMAKE_ARGS          -DCMAKE_INSTALL_PREFIX=${XBYAK_INSTALL_ROOT}

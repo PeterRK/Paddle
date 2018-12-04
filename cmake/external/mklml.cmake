@@ -29,8 +29,9 @@ INCLUDE(ExternalProject)
 SET(MKLML_PROJECT       "extern_mklml")
 IF((NOT DEFINED MKLML_VER) OR (NOT DEFINED MKLML_URL))
   MESSAGE(STATUS "use pre defined download url")
-  SET(MKLML_VER "mklml_lnx_2019.0.20180710" CACHE STRING "" FORCE)
-  SET(MKLML_URL "http://paddlepaddledeps.cdn.bcebos.com/${MKLML_VER}.tgz" CACHE STRING "" FORCE)
+  SET(MKLML_VER "mklml_lnx_2019.0.1.20180928" CACHE STRING "" FORCE)
+#  SET(MKLML_URL "http://paddlepaddledeps.cdn.bcebos.com/${MKLML_VER}.tgz" CACHE STRING "" FORCE)
+  SET(MKLML_PATH "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/${MKLML_VER}.tgz")
 ENDIF()
 MESSAGE(STATUS "MKLML_VER: ${MKLML_VER}, MKLML_URL: ${MKLML_URL}")
 SET(MKLML_SOURCE_DIR    "${THIRD_PARTY_PATH}/mklml")
@@ -58,8 +59,9 @@ ExternalProject_Add(
     ${EXTERNAL_PROJECT_LOG_ARGS}
     PREFIX                ${MKLML_SOURCE_DIR}
     DOWNLOAD_DIR          ${MKLML_DOWNLOAD_DIR}
-    DOWNLOAD_COMMAND      wget --no-check-certificate ${MKLML_URL} -c -q -O ${MKLML_VER}.tgz 
-                          && tar zxf ${MKLML_VER}.tgz
+#    DOWNLOAD_COMMAND      wget --no-check-certificate ${MKLML_URL} -c -q -O ${MKLML_VER}.tgz 
+#                          && tar zxf ${MKLML_VER}.tgz
+    DOWNLOAD_COMMAND      tar zxf ${MKLML_PATH}
     DOWNLOAD_NO_PROGRESS  1
     UPDATE_COMMAND        ""
     CMAKE_ARGS            -DCMAKE_INSTALL_PREFIX=${MKLML_INSTALL_ROOT}

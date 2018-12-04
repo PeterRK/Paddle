@@ -41,8 +41,9 @@ else()
   ExternalProject_Add(
       extern_xxhash
       ${EXTERNAL_PROJECT_LOG_ARGS}
-      GIT_REPOSITORY  "https://github.com/Cyan4973/xxHash"
-      GIT_TAG         "v0.6.5"
+#      GIT_REPOSITORY  "https://github.com/Cyan4973/xxHash"
+#      GIT_TAG         "v0.6.5"
+      URL             "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/xxHash"
       PREFIX          ${XXHASH_SOURCE_DIR}
       DOWNLOAD_NAME   "xxhash"
       UPDATE_COMMAND  ""

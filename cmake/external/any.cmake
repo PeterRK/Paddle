@@ -7,8 +7,9 @@ INCLUDE_DIRECTORIES(${ANY_SOURCE_DIR}/src/extern_lib_any)
 ExternalProject_Add(
     extern_lib_any
     ${EXTERNAL_PROJECT_LOG_ARGS}
-    GIT_REPOSITORY  "https://github.com/PaddlePaddle/any.git"
-    GIT_TAG         "15595d8324be9e8a9a80d9ae442fdd12bd66df5d"
+#    GIT_REPOSITORY  "https://github.com/PaddlePaddle/any.git"
+#    GIT_TAG         "15595d8324be9e8a9a80d9ae442fdd12bd66df5d"
+    URL             "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/any"
     PREFIX          ${ANY_SOURCE_DIR}
     UPDATE_COMMAND  ""
     CONFIGURE_COMMAND ""

@@ -32,8 +32,9 @@ else(WIN32)
 
     ExternalProject_Add(
             extern_snappystream
-            GIT_REPOSITORY "https://github.com/hoxnox/snappystream.git"
-            GIT_TAG "0.2.8"
+#            GIT_REPOSITORY "https://github.com/hoxnox/snappystream.git"
+#            GIT_TAG "0.2.8"
+            URL             "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/snappystream"
             PREFIX          ${SNAPPYSTREAM_SOURCES_DIR}
             UPDATE_COMMAND  ""
             CMAKE_ARGS      -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
