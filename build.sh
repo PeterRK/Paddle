@@ -3,7 +3,7 @@
 BUILD_DIR=`pwd`/build
 OUPUT_DIR=`pwd`/output
 
-export CXXFLAGS='-Wno-implicit-fallthrough -Wno-format-truncation -Wno-parentheses -Wno-ignored-attributes -Wno-cast-function-type -Wno-maybe-uninitialized -Wno-int-in-bool-context'
+export CXXFLAGS='-std=c++14 -Wno-implicit-fallthrough -Wno-format-truncation -Wno-parentheses -Wno-ignored-attributes -Wno-cast-function-type -Wno-maybe-uninitialized -Wno-int-in-bool-context'
 
 function create_empty_dir() {
 	if [[ -e "${1}" ]]; then
