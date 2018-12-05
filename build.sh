@@ -9,7 +9,7 @@ else
 	MAKE="make"
 fi
 
-export CXXFLAGS='-std=c++14 -Wno-implicit-fallthrough -Wno-format-truncation -Wno-parentheses -Wno-ignored-attributes -Wno-cast-function-type -Wno-maybe-uninitialized -Wno-int-in-bool-context'
+export CXXFLAGS='-std=c++14 -Wno-error=implicit-fallthrough -Wno-error=format-truncation -Wno-error=parentheses -Wno-error=ignored-attributes -Wno-error=cast-function-type -Wno-error=maybe-uninitialized -Wno-error=int-in-bool-context -Wno-error=address'
 
 function create_empty_dir() {
 	if [[ -e "${1}" ]]; then
