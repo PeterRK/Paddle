@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+FIND_PACKAGE(Boost REQUIRED)
 add_library(boost INTERFACE)
 return() #just use public lib
 
