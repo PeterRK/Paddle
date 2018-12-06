@@ -93,7 +93,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 if(NOT APPLE AND NOT ANDROID)
     find_package(Threads REQUIRED)
     link_libraries(${CMAKE_THREAD_LIBS_INIT})
-    set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -pthread -ldl -lrt")
+    set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -pthread -ldl -lrt -lz -lsnappy -lglog -lgflags -lprotobuf")
 endif(NOT APPLE AND NOT ANDROID)
 
 set_property(GLOBAL PROPERTY FLUID_MODULES "")
