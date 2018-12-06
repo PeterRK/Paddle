@@ -170,7 +170,11 @@ copy(memory_lib
         DSTS ${dst_dir}/${module} ${dst_dir}/${module}/detail ${dst_dir}/${module}/allocation
         )
 
-set(inference_deps paddle_fluid_shared paddle_fluid)
+if (BUILD_STATIC_LIB_ONLY)
+	set(inference_deps paddle_fluid)
+else()
+	set(inference_deps paddle_fluid_shared paddle_fluid)
+endif()
 
 set(module "inference/api")
 if (WITH_ANAKIN AND WITH_MKL)

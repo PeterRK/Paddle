@@ -58,20 +58,23 @@ if(NOT APPLE)
   set_target_properties(paddle_fluid PROPERTIES LINK_FLAGS "${LINK_FLAGS}")
 endif()
 
-# Create shared library
-if(WIN32)
-  sep_library(paddle_fluid_shared SHARED SRCS ${SHARED_INFERENCE_SRCS}
-          DEPS ${fluid_modules} paddle_fluid_api reset_tensor_array analysis_config paddle_pass_builder)
-  target_link_libraries(paddle_fluid_shared shlwapi)
-  if(WITH_GPU AND NOT WITH_DSO)
-    target_link_libraries(paddle_fluid_origin ${cuda_modules})
-  endif(WITH_GPU AND NOT WITH_DSO)
-else(WIN32)
-  cc_library(paddle_fluid_shared SHARED SRCS ${SHARED_INFERENCE_SRCS}
-      DEPS ${fluid_modules} paddle_fluid_api reset_tensor_array analysis_config paddle_pass_builder)
-endif()
+if (NOT BUILD_STATIC_LIB_ONLY)
+  # Create shared library
+  if(WIN32)
+    sep_library(paddle_fluid_shared SHARED SRCS ${SHARED_INFERENCE_SRCS}
+            DEPS ${fluid_modules} paddle_fluid_api reset_tensor_array analysis_config paddle_pass_builder)
+    target_link_libraries(paddle_fluid_shared shlwapi)
+    if(WITH_GPU AND NOT WITH_DSO)
+      target_link_libraries(paddle_fluid_origin ${cuda_modules})
+    endif(WITH_GPU AND NOT WITH_DSO)
+  else(WIN32)
+    cc_library(paddle_fluid_shared SHARED SRCS ${SHARED_INFERENCE_SRCS}
+        DEPS ${fluid_modules} paddle_fluid_api reset_tensor_array analysis_config paddle_pass_builder)
+  endif()
 
 set_target_properties(paddle_fluid_shared PROPERTIES OUTPUT_NAME paddle_fluid)
+endif()
+
 #if(NOT APPLE AND NOT WIN32)
   # TODO(liuyiqun): Temporarily disable the link flag because it is not support on Mac.
 #  set(LINK_FLAGS "-Wl,--version-script ${CMAKE_CURRENT_SOURCE_DIR}/paddle_fluid.map")
