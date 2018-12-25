@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-find_package(Glog REQUIRED)
+if (WITH_GLOG)
+  find_package(Glog REQUIRED)
+else()
+  INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/fake-glog)
+endif()
 add_library(glog INTERFACE)
 return() #just use public lib
 

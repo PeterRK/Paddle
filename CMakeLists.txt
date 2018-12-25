@@ -42,6 +42,7 @@ find_package(Threads REQUIRED)
 include(simd)
 
 ################################ Configurations #######################################
+option(WITH_GLOG        "Compile PaddlePaddle with GLOG"                OFF)
 option(WITH_GPU         "Compile PaddlePaddle with NVIDIA GPU"          ${CUDA_FOUND})
 option(WITH_AMD_GPU     "Compile PaddlePaddle with AMD GPU"             OFF)
 option(WITH_AVX         "Compile PaddlePaddle with AVX intrinsics"      ${AVX_FOUND})
