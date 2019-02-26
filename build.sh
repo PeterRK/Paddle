@@ -39,6 +39,6 @@ function collect_thirdparty_libs() {
 create_empty_dir "${BUILD_DIR}" && \
 create_empty_dir "${OUPUT_DIR}" && \
 cd "${BUILD_DIR}" && \
-cmake -DBUILD_STATIC_LIB_ONLY=ON -DWITH_MKLDNN=ON -DWITH_AVX=ON -DON_INFER=ON -DCMAKE_BUILD_TYPE=Release -DWITH_FLUID_ONLY=ON -DWITH_SWIG_PY=OFF -DWITH_PYTHON=OFF -DWITH_GPU=OFF -DON_INFER=ON -DFLUID_INFERENCE_INSTALL_DIR="${OUPUT_DIR}" .. && \
+cmake -DBUILD_STATIC_LIB_ONLY=ON -DWITH_MKLDNN=ON -DWITH_AVX=ON -DON_INFER=ON -DCMAKE_BUILD_TYPE=Release -DWITH_FLUID_ONLY=ON -DWITH_SWIG_PY=OFF -DWITH_PYTHON=OFF -DWITH_GPU=OFF -DFLUID_INFERENCE_INSTALL_DIR="${OUPUT_DIR}" .. && \
 ${MAKE} && make inference_lib_dist && \
 collect_thirdparty_libs "${OUPUT_DIR}/third_party/install" "${OUPUT_DIR}/paddle"
